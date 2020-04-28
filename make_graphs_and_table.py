@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 import argparse
 import collections
@@ -96,6 +97,7 @@ def make_table(pickles, datasets, models):
 
 def main():
     parser = argparse.ArgumentParser(description='Graphs')
+    # noqa = NO-QA (NO Quality Assurance).ingore warning.
     parser.add_argument(
         '-r', dest='results_folder',
         default='./results') # noqa

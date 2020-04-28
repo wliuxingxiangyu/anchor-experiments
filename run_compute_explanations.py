@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import subprocess
 datasets = ['adult', 'recidivism', 'lending']
 explainers = ['anchor', 'lime']

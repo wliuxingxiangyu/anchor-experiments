@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 import argparse
 import os
@@ -6,7 +7,7 @@ import sklearn
 import numpy as np
 import utils
 
-
+# prerecall: 预召回.
 def submodular_anchor_precrecall(z_anchor, dataset, preds_validation,
                                  preds_test, k):
     # returns picked, precisions, recalls
