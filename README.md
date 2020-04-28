@@ -11,8 +11,8 @@ Inside a virtualenv, run:
 #### Examples
 Run:
 
-    python run_compute_explanations.py
-    python run_process_results.py
-    python make_graphs_and_table.py
+    python2 run_compute_explanations.py
+    python2 run_process_results.py
+    python2 make_graphs_and_table.py
 
 Results will be in folder `results`

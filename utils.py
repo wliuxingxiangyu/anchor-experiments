@@ -23,7 +23,7 @@ class Bunch(object):
 def map_array_values(array, value_map):
     # value map must be { src : target }
     ret = array.copy()
-    for src, target in value_map.iteritems():
+    for src, target in value_map.items():
         ret[ret == src] = target
     return ret
 
@@ -490,7 +490,7 @@ def compute_lime_weight_vals(explanations, exp_data, data):
             intercept = explanations[j]['intercept']
             val = intercept
             # val = 0.5
-            for f, v in exp.iteritems():
+            for f, v in exp.items():
                 if d[f] == exp_data[j, f]:
                     val += v
             vals[i, j] = val

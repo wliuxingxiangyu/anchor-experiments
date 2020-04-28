@@ -33,7 +33,7 @@ def main():
 
     explainer = anchor_tabular.AnchorTabularExplainer(
         dataset.class_names, dataset.feature_names,
-        dataset.data, dataset.categorical_names)
+        dataset.data, dataset.categorical_names) # AnchorTabularExplainer hz- error
     explainer.fit(dataset.train, dataset.labels_train,
                   dataset.validation, dataset.labels_validation)
 

@@ -21,7 +21,7 @@ class AnchorTabularExplainer(object):
             n_values = [len(categorical_names[i]) for i in cat_names]
             self.encoder = sklearn.preprocessing.OneHotEncoder(
                 categorical_features=cat_names,
-                n_values=n_values)
+                n_values=n_values) #hz- error..categorical_features .. https://stackoverflow.com/questions/59476165/typeerror-init-got-an-unexpected-keyword-argument-categorical-features
             self.encoder.fit(data)
             self.categorical_features = self.encoder.categorical_features
         self.ordinal_features = ordinal_features
