@@ -27,11 +27,15 @@ class AnchorTabularExplainer(object):
             self.encoder = sklearn.preprocessing.OneHotEncoder(
                 categorical_features=cat_names,
                 n_values=n_values) #hz- error..categorical_features .. https://stackoverflow.com/questions/59476165/typeerror-init-got-an-unexpected-keyword-argument-categorical-features
+
+                onehotencoder = OneHotEncoder(categorical_features = [0])
+                X = onehotencoder.fit_transform(X).toarray()
+                改成：
+                onehotencoder = OneHotEncoder(categories='auto')
+                X = onehotencoder.fit_transform(X)
             '''
-            # Country column
-            ct=ColumnTransformer([(cat_names, OneHotEncoder(),[1])],remainder='passthrough')
-            data = ct.fit_transform(data)
-            self.encoder = LabelEncoder() 
+            self.encoder = sklearn.preprocessing.OneHotEncoder(categories='auto')
+
 
             self.encoder.fit(data)
             self.categorical_features = self.encoder.categorical_features
