@@ -289,6 +289,9 @@ class AnchorBaseBeam(object):
             return anchor
         prealloc_size = batch_size * 10000
         current_idx = data.shape[0]
+        # np.vstack 沿着竖直方向将矩阵堆叠起来。
+        print("anchor_beam() data : %s" % str(data)) # data elem is float?
+        print("anchor_beam() prealloc_size : %s" % str(prealloc_size))
         data = np.vstack((data, np.zeros((prealloc_size, data.shape[1]),
                                          data.dtype)))
         raw_data = np.vstack(

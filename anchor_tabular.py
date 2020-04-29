@@ -38,7 +38,7 @@ class AnchorTabularExplainer(object):
 
 
             self.encoder.fit(data)
-            self.categorical_features = self.encoder.categorical_features
+            self.categories = self.encoder.categories
         self.ordinal_features = ordinal_features
         self.feature_names = feature_names
         self.class_names = class_names
