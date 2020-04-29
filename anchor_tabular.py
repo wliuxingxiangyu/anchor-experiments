@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
 import anchor_base
 import lime
 import lime.lime_tabular
 import collections
 import sklearn
 import numpy as np
-
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 
 class AnchorTabularExplainer(object):
     """
@@ -19,9 +21,18 @@ class AnchorTabularExplainer(object):
             # TODO: Check if this n_values is correct!!
             cat_names = sorted(categorical_names.keys())
             n_values = [len(categorical_names[i]) for i in cat_names]
+            print("cat_names: %s" % str(cat_names)) #cat_names: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+            print("n_values: %s" % str(n_values))   #n_values:  [4, 9, 16, 7, 15, 6, 5, 2, 3, 3, 3, 42] 
+            '''
             self.encoder = sklearn.preprocessing.OneHotEncoder(
                 categorical_features=cat_names,
                 n_values=n_values) #hz- error..categorical_features .. https://stackoverflow.com/questions/59476165/typeerror-init-got-an-unexpected-keyword-argument-categorical-features
+            '''
+            # Country column
+            ct=ColumnTransformer([(cat_names, OneHotEncoder(),[1])],remainder='passthrough')
+            data = ct.fit_transform(data)
+            self.encoder = LabelEncoder() 
+
             self.encoder.fit(data)
             self.categorical_features = self.encoder.categorical_features
         self.ordinal_features = ordinal_features

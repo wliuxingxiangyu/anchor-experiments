@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 import argparse
 import pickle
@@ -9,6 +10,7 @@ import anchor_tabular
 
 
 def main():
+    # python compute_explanations.py -d adult -e anchor -m xgboost -o out_pickles/adult-anchor-xgboost 
     parser = argparse.ArgumentParser(description='Compute some explanations.')
     parser.add_argument('-d', dest='dataset', required=True,
                         choices=['adult', 'recidivism', 'lending'],
